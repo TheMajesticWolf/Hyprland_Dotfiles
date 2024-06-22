@@ -1,0 +1,281 @@
+@import 'colors.css';
+
+
+* {
+    font-family: sans-serif;
+    /*font-size: 8px;*/
+    /*color: whitesmoke;*/
+
+}
+
+
+/*The main container*/
+window#waybar {
+    background: transparent;
+    background-color: rgba(0, 0, 0, 0.03);
+    /*background-color: @color13;*/
+    outline: none;
+    border: 1px solid @currentwindowboxborder;
+    border-radius: 50px;
+    /*border: 1px solid purple;*/
+
+}
+
+
+
+window#waybar.empty #window {
+    background-color: transparent;
+    border: none;
+}
+
+tooltip {
+    background-color: rgba(0, 0, 0, 0.7);
+    outline: none;
+    border: none;
+    font-size: 18px;
+}
+
+tooltip label {
+    color: whitesmoke;
+}
+
+
+/*The current window box*/
+box#window {
+    /*border: 2px solid red;*/
+    padding: 1px;
+    margin: 2px;
+    font-size: 14px;
+    font-weight: bolder;
+    color: white;
+    /*border: 4px solid rgba(210, 200, 190, 1.0);*/
+    border: 4px solid @currentwindowboxborder;
+    border-radius: 50px;
+    background-color: rgba(128, 128, 128, 0.2);
+    border: 1px solid @currentwindowboxborder;
+}
+
+box#window:hover {
+    border-color: grey;
+
+}
+
+
+
+
+button:hover {
+    box-shadow: none;
+    text-shadow: none;
+    background: none;
+    transition: none;
+}
+
+#taskbar {
+    /*border: 4px solid rgba(210, 200, 190, 1.0);*/
+    border: 4px solid @modulesleftborder; 
+    border-radius: 50px;
+    padding: 1px;
+    margin: 0px 10px;
+    min-width: 50px;
+
+}
+
+#taskbar button:hover {
+
+    border: none;
+    outline: none;
+
+}
+
+#taskbar.empty {
+    margin: 0px;
+    min-width: 0px;
+    padding: 1px;
+    background: transparent;
+    border: none;
+}
+
+.modules-left {
+    padding-left: 5px;
+    /*font-size: 10px;*/
+    color: whitesmoke;
+    margin-right: 5px;
+    /*border: 1px solid red;*/
+}
+
+.modules-center {
+    padding: 1px;
+    margin: 0px 5px;
+    
+    /*border: 1px solid cyan;*/
+}
+
+.modules-right {
+    padding-right: 5px;
+    font-size: 18px;
+    color: @foreground;
+    /*border: 1px solid grey;*/
+}
+
+
+/*The workspace container*/
+#workspaces {
+    background-color: transparent;
+    /*border: 2px solid @workspaceborder;*/
+    border-radius: 50px;
+    padding: 5px;
+    margin-left: 5px;
+    /*background-color: @workspacebackground;*/
+
+
+}
+
+#workspaces button {
+    font-size: 16px;
+    /*box-shadow: 0 0 0 2px rgb(105, 75, 65);*/
+    /*margin: 10px;*/
+    /*border-radius: 1000px;*/
+    color: @workspacebuttontext;
+    opacity: 0.4;
+}
+
+#workspaces button.active {
+    box-shadow: 0 0 0 2px @workspacebuttonactive;
+    opacity: 1;
+    /*min-width: 50px;*/
+    /*background-color: rgba(256, 256, 256, 0.5)*/
+    /*background: rgba(255, 255, 255, 0.8);*/
+}
+
+#workspaces button.urgent {
+    opacity: 1.0;
+    box-shadow: 0 0 0 4px red;
+}
+
+#workspaces button:hover {
+    /*background-color: red;*/
+    opacity: 1.0;
+    box-shadow: 0 0 0 2px @color7;
+
+    /*min-width: 50px;*/
+
+
+}
+
+/*
+#workspaces button:focused {
+    color: red;
+}
+*/
+
+#clock.clk1,
+#custom-poweroff {
+    /*font-family: monospace;*/
+    font-weight: bolder;
+    font-size: 20px;
+    color: antiquewhite;
+    /*border: 1px solid lime;*/
+}
+
+
+
+#network,
+#battery,
+#clock.clk1 {
+    /*background-color: rgba(10, 0, 0, 0.3);*/
+    border-radius: 50px;
+    outline: none;
+    /* background: transparent;*/
+    /*border: 1px solid cyan;*/
+    padding: 1px;
+    margin: 3px;
+    /*background-color: @color10;*/
+    /*border: 2px solid cyan;*/
+    /*border: 2px solid @modulesrightborder;*/
+
+
+
+}
+
+#battery.warning {
+    color: orange;
+}
+
+#battery.critical {
+    color: red;
+}
+
+
+#cpu,
+#memory,
+#disk {
+    /*margin: 1px 5px 1px 5px;*/
+    /*spacing: 10px;*/
+    /*padding: 1px 5px 1px 5px;*/
+    margin: 10px;
+
+
+}
+
+#hardware {
+    border-radius: 50px;
+    outline: none;
+    /*border: 2px solid @hardwareboxborder;*/
+    padding: 1px;
+    /*color: rgba(204, 207, 200, 1);*/
+    margin: 2px;
+    /*background-color: red;*/
+    /*background-color: @color10;*/
+
+
+
+}
+
+#clock.clk1 {
+    min-width: 75px;
+}
+
+#custom-poweroff {
+    /*margin-left: 10px;*/
+    font-size: 30px;
+}
+
+#custom-poweroff:hover {
+    color: red;
+}
+
+#network:hover,
+#cpu:hover,
+#memory:hover,
+#disk:hover,
+#battery:hover {
+    color: @workspacebuttonhover;
+    font-weight: bolder;
+    /*border: 1px  solid limegreen;*/
+    /*box-shadow: 0 0 0 1px limegreen; */
+}
+
+#appshortcuts {
+    /*border: 4px solid rgba(210, 200, 191, 1.0);*/
+    /*border: 4px solid @modulesleftborder;*/
+    margin-right: 5px;
+    padding: 1px;
+    border-radius: 50px;
+    background-color: rgba(10, 10, 10, 0.2);
+}
+
+#custom-firefox,
+#custom-code,
+#custom-appmenu,
+#custom-filemanager {
+    font-size: 20px;
+    margin: 0px 2px;
+    padding: 10px;
+}
+
+#custom-appmenu {
+    border-radius: 50px;
+    min-width: 100px;
+    font-weight: bolder;
+    /*border: 2px solid @modulesleftborder;*/
+}

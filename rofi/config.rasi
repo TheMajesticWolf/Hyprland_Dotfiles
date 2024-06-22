@@ -1,0 +1,182 @@
+
+configuration {
+    modes: "window,drun,run,ssh";
+    display-drun: "Apps";
+    display-run: "Executables";
+    display-window: "Windows";
+    display-ssh: "SSH";
+    show-icons: true;
+    drun-display-format: "{icon} {name}";
+    font: "consolas Regular 18";
+    kb-remove-word-forward: "Control+Delete";
+
+    timeout {
+         action: "kb-cancel";
+         delay:  0;
+    }
+
+
+    filebrowser {
+        directories-first: true;
+        sorting-method: "name";
+    }
+
+}
+
+@theme "/dev/null"
+@import "~/.cache/wal/rofi_template.rasi"
+/*@import "~/.cache/wal/colors-rofi-dark.rasi"*/
+
+* {
+    /*background-color: rgba(17, 19, 33, 0.5);*/
+    /*background-color: @background;*/
+    border: 0;
+    margin: 0;
+    padding: 0;
+    spacing: 0;
+    background-color: transparent;
+}
+
+
+window {
+    width: 55%;
+    border: 2px;
+    border-color: @color12;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+mainbox {
+    children: ["inputbar", "message", "listview", "mode-switcher"];
+}
+
+
+inputbar {
+    children: [prompt, "textbox-prompt-colon", entry, num-filtered-rows, textbox-num-sep, num-rows];
+    color: @color1; 
+    padding: 5px;
+    /*background-color: @color0;*/
+    margin: 0px 0px 10px 0px;
+}
+
+
+
+prompt {
+    text-color: @color2;
+    background-color: inherit;
+    vertical-align: 0.5;
+
+}
+
+textbox-prompt-colon {
+    text-color: inherit;
+    background-color: inherit;
+    str: ":";
+    expand: false;
+    margin: 0px 10px 0px 0px;
+}
+
+entry {
+    placeholder: "Type here";
+    cursor: pointer;
+    color: @foreground;
+    /*border: 2px;*/
+    /*border-color: white;*/
+    background-color: inherit;
+}
+
+num-filtered-rows,
+num-rows {
+    
+    text-color: @color13;
+}
+
+
+textbox-num-sep {
+    expand: false;
+    text-color: @color12;
+    str: "/";
+
+}
+
+listview {
+    fixed-height: true;
+    border-color: blue;
+    lines: 8;
+    scrollbar: true;
+    cycle: true;
+    columns: 2;
+}
+
+scrollbar {
+    enabled: true;
+    border: 1px;
+    border-color: @color7;
+    border-radius: 20px;
+    handle-width: 8px;
+    handle-color: @color11;
+}
+
+element {
+    border-color: lime;
+    text-color: @color15;
+    padding: 10px 0px 10px 0px;
+    /*margin: 5px 0px 5px 0px;*/
+    children: ["element-index", "element-icon", "element-text"];
+    children: ["element-icon", "element-text"];
+}
+
+element selected {
+    text-color: @color4;
+}
+
+
+
+element-text {
+    vertical-align: 0.5;
+    text-color: inherit;
+    highlight: underline limegreen;
+}
+
+
+element-icon {
+    margin: 0px 0px 0px 10px;
+    size: 40px;
+    border: 1px;
+    /*padding: 3px;
+    border-color: white;
+    border-radius: 1000px;*/
+}
+
+element-index {
+    text-color: @color6;
+    margin: 0px 20px 0px 10px;
+}
+
+element-index selected {
+    text-color: @color9;
+}
+
+mode-switcher {
+    border: 1px;
+    margin: 5px 0px 0px 0px;
+    padding: 10px 0px 10px 0px;
+}
+
+button {
+    text-color: @color3;
+    background-color: inherit;
+}
+
+button selected {
+    text-color: @color14;
+}
+
+error-message {
+    padding: 5px;
+}
+
+textbox {
+    text-color: white;
+}
+

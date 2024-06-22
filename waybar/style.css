@@ -1,0 +1,491 @@
+/*@import 'colors.css';*/
+@import '/home/aditya/.cache/wal/waybar_template.css';
+/* @import '/home/aditya/.cache/wal/colors-waybar.css'; */
+
+
+
+* {
+	font-family: sans-serif;
+	font-family: JetBrains Mono;
+	/*font-size: 8px;*/
+	/*color: whitesmoke;*/
+
+}
+
+
+/*The main container*/
+window#waybar {
+	background: transparent;
+	background-color: rgba(0, 0, 0, 0.05);
+	outline: none;
+	border-radius: 20px;
+	background-color: @barbg;
+	/* border: 2px solid cyan; */
+
+}
+
+
+
+window#waybar.empty #window {
+	background-color: transparent;
+	border: none;
+}
+
+tooltip {
+	background-color: rgba(0, 0, 0, 0.7);
+	outline: none;
+	border: none;
+	font-size: 18px;
+}
+
+tooltip label {
+	color: whitesmoke;
+}
+
+
+/*The current window box*/
+box#window {
+	/*border: 2px solid red;*/
+	padding: 1px;
+	margin: 2px;
+	font-size: 14px;
+	font-weight: bolder;
+	color: white;
+	/*border: 4px solid rgba(210, 200, 190, 1.0);*/
+	border-radius: 20px;
+	background-color: rgba(128, 128, 128, 0.2);
+	border: 2px solid @currentwindowboxborder;
+	padding: 5px;
+	background-color: @commonbg;
+	margin: 3px;
+	padding: 5px;
+}
+
+box#window:hover {
+	border-color: grey;
+
+}
+
+
+
+
+button:hover {
+	box-shadow: none;
+	text-shadow: none;
+	background: none;
+	transition: none;
+}
+
+#taskbar {
+	/*border: 4px solid rgba(210, 200, 190, 1.0);*/
+	border: 2px solid @taskbarborder;
+	border-radius: 20px;
+	padding: 5px;
+	/* margin: 0px 10px; */
+	margin: 3px;
+	min-width: 50px;
+	background-color: @commonbg;
+
+}
+
+#taskbar button:hover {
+
+	border: none;
+	outline: none;
+
+}
+
+#taskbar.empty {
+	margin: 0px;
+	min-width: 0px;
+	padding: 1px;
+	background: transparent;
+	border: none;
+}
+
+.modules-left {
+	padding-left: 5px;
+	/*font-size: 10px;*/
+	color: whitesmoke;
+	margin-right: 5px;
+	/*border: 1px solid red;*/
+}
+
+.modules-center {
+	padding: 1px;
+	margin: 0px 5px;
+
+	/*border: 1px solid cyan;*/
+}
+
+.modules-right {
+	padding-right: 5px;
+	font-size: 18px;
+	color: @modulesrightitems;
+	/*border: 1px solid grey;*/
+}
+
+
+/*The workspace container*/
+#workspaces {
+	border: 2px solid @workspaceborder;
+	border-radius: 20px;
+	padding: 5px;
+	margin-left: 5px;
+	background-color: @workspacebg;
+
+
+
+}
+
+#workspaces button {
+	font-size: 20px;
+	/*box-shadow: 0 0 0 2px rgb(105, 75, 65);*/
+	margin: 5px;
+	/*border-radius: 20px;*/
+	color: @workspacebuttontext;
+	opacity: 0.4;
+	border: none;
+}
+
+#workspaces button.active {
+	/*box-shadow: 0 0 0 2px @buttonactiveborder;*/
+	border-bottom: 2px solid @buttonactiveborder;
+	font-weight: bolder;
+	opacity: 1;
+	/*min-width: 35px;*/
+
+
+}
+
+#workspaces button.urgent {
+	opacity: 1.0;
+	box-shadow: 0 0 0 4px red;
+}
+
+#workspaces button:hover {
+	/*background-color: red;*/
+	opacity: 1.0;
+	font-weight:  bolder;
+	color: magenta;
+	/*box-shadow: 0 0 0 2px lime;*/
+	/*border: none;*/
+
+	/*min-width: 50px;*/
+
+
+}
+
+/*
+#workspaces button:focused {
+	color: red;
+}
+*/
+
+#clock.clk1,
+#custom-poweroff {
+	font-size: 20px;
+}
+
+#custom-separator {
+	color: @workspaceactiveborder;
+	font-weight: bolder;
+}
+
+
+/*#network,*/
+/*#clock.clk1 {
+	border-radius: 8px;
+	outline: none;
+	padding: 5px;
+	margin: 3px;
+	border: 2px solid @modulesrightitemsborder;
+	background-color: @commonbg;
+
+
+
+
+}*/
+
+/*#network {
+    font-size: 20px;
+}*/
+
+#battery.warning {
+	color: orange;
+}
+
+#battery.critical {
+	color: red;
+}
+
+
+#cpu,
+#memory,
+#disk,
+#power-profiles-daemon,
+#keyboard-state,
+#network,
+#wireplumber,
+#clock.clk1,
+#custom-poweroff,
+#privacy,
+#custom-microphone,
+#cava {
+	margin: 5px 8px;
+
+
+}
+
+#hardware {
+	/*font-size: 19px;*/
+	border-radius: 20px;
+	outline: none;
+	padding: 5px;
+	margin: 3px;
+	color: @hardwareitems;
+	border: 2px solid @hardwareboxborder;
+	background-color: @commonbg;
+
+
+
+}
+
+#clock.clk1 {
+	/*min-width: 75px;*/
+	font-weight: bolder;
+	font-size: 23px;
+}
+
+/*#custom-poweroff {
+	padding: 5px;
+	margin: 3px;
+	border: 2px solid orange;
+	font-size: 25px;
+	border-radius: 20px;
+	font-weight: bolder;
+	background-color: @commonbg;
+}*/
+
+#custom-poweroff:hover {
+	color: red;
+}
+
+
+#network:hover,
+#cpu:hover,
+#memory:hover,
+#disk:hover,
+#battery:hover
+#wireplumber:hover
+{
+	color: @rightparthover;
+	/*color: @foreground;*/
+	font-weight: bolder;
+	/*border: 1px  solid limegreen;*/
+	/*box-shadow: 0 0 0 1px limegreen; */
+}
+
+#clock.clk1:hover {
+	color: @foreground;
+}
+
+#appshortcuts {
+	/*border: 4px solid rgba(210, 200, 191, 1.0);*/
+	/*border: 4px solid @modulesleftborder;*/
+	margin-right: 5px;
+	padding: 1px;
+	border-radius: 20px;
+	background-color: @commonbg;
+	border: 2px solid @appshortcutsborder;
+
+	margin: 3px;
+	padding: 5px;
+
+}
+
+#custom-firefox,
+#custom-code,
+#custom-applauncher,
+#custom-filemanager,
+#custom-webopener {
+	font-size: 20px;
+	margin: 0px 5px;
+	padding: 5px;
+}
+
+/*#custom-applauncher {
+	border-radius: 50px;
+	min-width: 100px;
+	font-weight: bolder;
+	border: 2px solid @modulesleftborder;
+}*/
+
+#keyboard-state {
+	/*border: 2px solid @hardwareboxborder;
+	border-radius: 20px;*/
+
+}
+
+#keyboard-state label {
+	/*margin: 0px 50px;*/
+	color: green;
+}
+
+#keyboard-state label.locked {
+	color: red;
+}
+
+#power-profiles-daemon.balanced,
+#power-profiles-daemon.default {
+	color: yellowgreen;
+}
+
+#power-profiles-daemon.performance {
+	color: orange;
+}
+
+#power-profiles-daemon.power-saver {
+	color: limegreen;
+}
+
+#network {
+	color: @network;
+}
+
+#cpu {
+	/* color: @cpu; */
+	color: @disk;
+
+}
+
+
+#memory {
+	color: @memory;
+
+}
+
+#disk {
+	color: @disk;
+
+}
+
+#battery {
+	color: @battery;
+	color: @memory;
+	padding: 5px;
+	margin: 3px;
+
+}
+
+
+#clock.clk1 {
+	color: @clock;
+}
+
+#idle_inhibitor {
+	padding: 5px;
+	margin: 3px;
+	color: @foreground;
+}
+
+#utilities {
+
+	border: 2px solid @utilitiesborder;
+	border-radius: 20px;
+	background-color: @commonbg;
+	font-weight: bolder;
+}
+
+#custom-weather {
+	padding: 5px;
+	margin: 3px;
+	font-size: 18px;
+}
+
+#backlight-slider {
+	color: cyan;
+}
+
+#backlight-slider slider {
+	opacity: 1;
+	border: red;
+	color: white;
+}
+
+#backlight-slider trough {
+	min-width: 50px;
+	border-radius: 5px;
+	background-color: white;
+}
+
+#backlight-slider highlight {
+	min-width: 10px;
+	border-radius: 5px;
+	background-color: red;
+}
+
+#pulseaudio-slider slider {
+    opacity: 1;
+    border: none;
+    box-shadow: none;
+}
+#pulseaudio-slider trough {
+    min-width: 50px;
+    border-radius: 5px;
+    background-color: black;
+}
+#pulseaudio-slider highlight {
+    min-width: 10px;
+    border-radius: 5px;
+    background-color: rgb(128, 0, 0);
+}
+
+#wireplumber.low {
+	color: rgb(96, 249, 96)
+}
+
+#wireplumber.high {
+	color: red
+}
+
+#wireplumber.muted {
+	color: rgb(249, 71, 7);
+}
+
+#privacy {
+	
+}
+
+#privacy-item {
+	color: @privacy;
+}
+
+
+#custom-microphone.muted {
+	color: lime;
+}
+
+#custom-microphone.unmuted {
+	color: red;
+}
+
+/*#cava {
+	border: 2px solid @utilitiesborder;
+	border-radius: 20px;
+	padding: 5px;
+	margin: 3px;
+	background-color: @commonbg;
+	min-width: 50px;
+}*/
+
+#cava {
+	background: linear-gradient(90deg, rgba(2,0,36,0.4) 0%, rgba(9,121,117,0.4) 59%, rgba(0,212,255,0.2) 100%); 
+	background: linear-gradient(142deg, rgba(131,58,180,0.4) 0%, rgba(253,29,29,0.4) 50%, rgba(252,176,69,0.2) 100%); 
+	background: linear-gradient(142deg, @cavabg1, @cavabg2, @cavabg3); 
+	margin-left: 0;
+	border-radius: 10px;
+	padding: 2px;
+	color: @cavabars; 
+}
+

@@ -1,0 +1,17 @@
+@import '/home/aditya/.cache/wal/colors-waybar.css';
+
+@define-color workspacebackground @color6;
+@define-color modulesrightborder @color4;
+@define-color modulesleftborder @color15;
+@define-color workspacebuttontext @color15;
+/*@define-color workspacebuttontext white;*/
+@define-color currentwindowboxborder @color9;
+@define-color hardwareboxborder @color9;
+
+@define-color workspaceborder @color3;
+
+@define-color modulesrightbackground @color6;
+
+@define-color workspacebuttonhover @color7;
+
+@define-color workspacebuttonactive @color15;

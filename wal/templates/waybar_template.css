@@ -1,0 +1,39 @@
+@define-color background rgba({background.rgb},1.0);
+@define-color foreground rgba({foreground.rgb},1.0);
+
+@define-color commonbg rgba({color0.rgb},0.6);
+
+
+@define-color barbg rgba({color6.rgb},0.0);
+
+@define-color workspacebg rgba({background.rgb}, 0.8);
+@define-color workspaceborder rgba({color3.rgb}, 1.0);
+
+@define-color taskbarborder rgba({color4.rgb}, 1.0);
+
+
+@define-color network rgba({color12.rgb}, 1.0);
+@define-color cpu rgba({color4.rgb}, 1.0);
+@define-color memory rgba({color13.rgb}, 1.0);
+@define-color disk rgba({color6.rgb}, 1.0);
+@define-color battery rgba({color4.rgb}, 1.0);
+@define-color clock rgba({color12.rgb}, 1.0);
+@define-color privacy rgba({color7.rgb}, 1.0);
+
+@define-color rightparthover rgba({color6.rgb}, 1.0);
+
+@define-color hardwareboxborder rgba({color3.rgb}, 1.0);
+
+@define-color appshortcutsborder rgba({color5.rgb}, 1.0);
+
+@define-color utilitiesborder rgba({color3.rgb}, 1.0);
+
+@define-color weather rgba({color5.rgb}, 1.0);
+
+@define-color currentwindowboxborder rgba({color2.rgb}, 1.0);
+
+
+@define-color cavabars rgba({color7.rgb}, 1);
+@define-color cavabg1 rgba({color2.rgb}, 0.4);
+@define-color cavabg2 rgba({color4.rgb}, 0.4);
+@define-color cavabg3 rgba({color5.rgb}, 0.2);

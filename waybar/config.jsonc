@@ -1,0 +1,504 @@
+// -*- mode: jsonc -*-
+{
+	//  "height": 30, // Waybar height (to be removed for auto height)
+	"margin": "10",
+	"spacing": 4, // Gaps between modules (4px)
+	"fixed-center": true,
+	// Choose the order of the modules
+	"modules-left": [
+		"group/appshortcuts",
+		// "group/utilities",
+		"wlr/taskbar",
+		"hyprland/window",
+	],
+
+	"modules-center": [
+		"hyprland/workspaces"
+	],
+	"modules-right": [
+		//"cava",
+		"group/hardware"
+		//"clock#clk1",
+		//"custom/poweroff"
+	],
+	"group/items": {
+		"orientation": "horizontal",
+		"drawer": {
+			"transition-duration": 500,
+			"children-class": "not-power",
+			"transition-left-to-right": false
+		},
+		"modules": [
+			"cpu",
+			"memory",
+			"disk"
+		]
+	},
+	"group/audio-video": {
+		"orientation": "horizontal",
+		"modules": [
+			"wireplumber",
+			// "backlight/slider",
+			"backlight",
+			"custom/microphone"
+		],
+		"drawer": {
+			"transition-duration": 500,
+			"transition-left-to-right": false
+		},
+	},
+	"group/hardware": {
+		"orientation": "horizontal",
+		"modules": [
+			"cava",
+			"network",
+			// "pulseaudio",
+			// "bluetooth",
+			"group/items",
+			"power-profiles-daemon",
+			"battery",
+			"group/audio-video",
+			"privacy",
+			"clock#clk1",
+			"custom/poweroff"
+
+
+		]
+	},
+	"cava": {
+		//"cava_config": "/home/aditya/.config/cava/config",
+			
+		"framerate": 144,
+		"autosens": 1,
+		"bars": 10,
+		"lower_cutoff_freq": 50,
+		"higher_cutoff_freq": 20000,
+		"method": "pipewire",
+		"source": "auto",
+		"stereo": true,
+		"reverse": false,
+		"bar_delimiter": 0,
+		"monstercat": false,
+		"waves": false,
+		"noise_reduction": 0.77,
+		"input_delay": 0,
+		"hide_on_silence": true,
+		"sleep_timer": 2,
+		"bar_height": 500,
+		
+		"format-icons" : ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
+		"actions": {
+			   "on-click-right": "mode"
+			   },
+		"gradient": 12,
+		"gradient_color_1": "#942c25",
+		"gradient_color_2": "#bc412f",
+		"gradient_color_3": "#cc6a34",
+		"gradient_color_4": "#d18e47",
+		"gradient_color_5": "#257095",
+		"gradient_color_6": "#2888a0",
+		"gradient_color_7": "#83d5df",
+		"gradient_color_8": "#5b959c",
+
+    },
+	"wireplumber": {
+		"format": "{volume}% {icon}",
+		"format-muted": "0% ",
+		"max-volume": 100.0,
+		"states": {
+			"low": 0,
+			"high": 50 
+		},
+		//"format-icons": ["", ""],
+		"format-icons": ["", "", ""],
+		"reverse-scrolling": 1,
+		"on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+	},
+	// "group/hardware": {
+	// 	"drawer": {
+	// 		"transition-duration": 500,
+	// 		"children-class": "not-power",
+	// 		"transition-left-to-right": false
+	// 	},
+	// 	"orientation": "horizontal"50,
+	// 	"modules": [
+	// 		"network",
+	// 		"cpu",
+	// 		"memory",
+	// 		"disk",
+	// 		// "power-profiles-daemon",
+	// 		// //"keyboard-state",
+	// 		// "battery",
+	// 		// //"idle_inhibitor"
+	// 		// //"pulseaudio",
+	// 		// "backlight/slider",
+	// 		"group/group-power"
+	// 	]
+	// },
+	"backlight/slider": {
+		"reverse-scrolling": 1
+
+	},
+	"group/appshortcuts": {
+		"orientation": "horizontal",
+		"modules": [
+			// "custom/applauncher",
+			"custom/firefox",
+			"custom/code",
+			"custom/filemanager",
+			"custom/webopener"
+		]
+	},
+	"group/utilities": {
+		"orientation": "horizontal",
+		"modules": [
+			"custom/weather"
+		]
+	},
+	"custom/weather": {
+		"exec": "python /home/aditya/.config/waybar/scripts/weather.py",
+		"return-type": "json",
+		"interval": 300
+	},
+	"custom/microphone": {
+		"format": "{}",
+		"exec": "bash /home/aditya/.config/waybar/scripts/mictoggle.sh",
+		"on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+		"interval": 1,
+		"return-type": "json",
+	},
+	"clock#clk1": {
+		"format": "{:%H:%M}",
+		"format-alt": "{:%H:%M:%S}",
+		"format-alt": " {:%a %d %b, %Y}",
+		"interval": 1,
+		"tooltip": true,
+		"timezones": [
+			"Asia/Calcutta",
+			"Etc/UTC"
+		],
+		// "tooltip-format": "{:%H:%M - %a %d %b, %Y}\n{tz_list}\n<small>{calendar}</small>",
+		"tooltip-format": "<b>{:%H:%M:%S - %a %d %b, %Y}</b>\nUTC-{tz_list}\n<span font='monospace' font-size='13pt'>{calendar}</span>",
+		"calendar": {
+			"mode": "month",
+			"mode-mon-col": 2,
+			"weeks-pos": "right",
+			"format": {
+				"months": "<span color='#ffead3'><b>{}</b></span>",
+				"days": "<span color='#ecc6d9'><b>{}</b></span>",
+				"weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+				"weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+				"today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+			}
+		},
+		"actions": {
+			"on-click-right": "mode",
+			"on-click-forward": "tz_up",
+			"on-click-backward": "tz_down",
+			"on-scroll-up": "shift_up",
+			"on-scroll-down": "shift_down"
+		}
+	},
+	"custom/poweroff": {
+		"format": "",
+		"on-click": "wlogout",
+		"tooltip": false
+	},
+	"custom/separator": {
+		"format": " | ",
+		"tooltip": false
+	},
+	"custom/firefox": {
+		"format": "",
+		"on-click": "firefox --private-window",
+		"tooltip": false,
+		"tooltip-format": "Firefox Private Window"
+	},
+	"custom/code": {
+		"format": "",
+		"on-click": "code",
+		"tooltip": false,
+		"tooltip-format": "VS Code"
+	},
+	"custom/applauncher": {
+		"format": "",
+		"on-click": "rofi -show drun",
+		"tooltip": false
+	},
+	"custom/filemanager": {
+		"format": "",
+		"on-click": "thunar",
+		"tooltip": false,
+		"tooltip-format": "File Manager"
+	},
+	"custom/webopener": {
+		"format": "",
+		"on-click": "/home/aditya/.config/waybar/scripts/bookmarks.sh",
+		"tooltip": false,
+		"tooltip-format": "Frequent websites"
+	},
+	// Modules configuration
+	"hyprland/workspaces": {
+		"disable-scroll": false,
+		"all-outputs": false,
+		"warp-on-scroll": true,
+		"format": "{name}",
+		"persistent-workspaces": {
+			"*": 5
+		},
+		"on-scroll-up": "hyprctl dispatch workspace e+1",
+		"on-scroll-down": "hyprctl dispatch workspace e-1"
+	},
+	"wlr/taskbar": {
+		"format": "{icon}",
+		"icon-size": 30,
+		"on-click": "activate",
+		"on-click-right": "close",
+		"ignore-list": [
+			"foot"
+		]
+	},
+	"hyprland/window": {
+		"max-length": 30,
+		"rewrite": {
+			"(.*) - Visual Studio Code": "Visual Studio Code",
+			"(.*)Firefox(.*)": "Mozilla Firefox"
+		}
+	},
+	"keyboard-state": {
+		"device-path": "platform-i8042-serio-0-event-kbd",
+		"numlock": false,
+		"capslock": true,
+		"scrolllock": false,
+		"format": {
+			"numlock": "N {icon}",
+			"capslock": "C {icon}",
+			"scrolllock": "S {icon}"
+		},
+		"format-icons": {
+			"locked": "",
+			"unlocked": ""
+		}
+	},
+	"user": {
+		"icon": true,
+		"format": "{user} {up_d}"
+	},
+	"privacy": {
+		"icon-spacing": 10,
+		"icon-size": 18,
+		"transition-duration": 250,
+		"modules": [
+			{
+				"type": "screenshare",
+				"tooltip": true,
+				"tooltip-icon-size": 24
+			},
+			{
+				"type": "audio-out",
+				"tooltip": true,
+				"tooltip-icon-size": 24
+			},
+			{
+				"type": "audio-in",
+				"tooltip": true,
+				"tooltip-icon-size": 24
+			}
+		]
+	},	"hyprland/mode": {
+		"format": "<span style=\"italic\">{}</span>"
+	},
+	"hyprland/scratchpad": {
+		"format": "{icon} {count}",
+		"show-empty": false,
+		"format-icons": [
+			"",
+			""
+		],
+		"tooltip": true,
+		"tooltip-format": "{app}: {title}"
+	},
+	"mpd": {
+		"format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
+		"format-disconnected": "Disconnected ",
+		"format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+		"unknown-tag": "N/A",
+		"interval": 5,
+		"consume-icons": {
+			"on": " "
+		},
+		"random-icons": {
+			"off": "<span color=\"#f53c3c\"></span> ",
+			"on": " "
+		},
+		"repeat-icons": {
+			"on": " "
+		},
+		"single-icons": {
+			"on": "1 "
+		},
+		"state-icons": {
+			"paused": "",
+			"playing": ""
+		},
+		"tooltip-format": "MPD (connected)",
+		"tooltip-format-disconnected": "MPD (disconnected)"
+	},
+	"idle_inhibitor": {
+		"format": "{icon}",
+		"format-icons": {
+			"activated": "",
+			"deactivated": ""
+		}
+	},
+	"tray": {
+		"icon-size": 21,
+		"spacing": 10,
+		"show_passive_items": true
+	},
+	"clock": {
+		// "timezone": "America/New_York",
+		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+		"format-alt": "{:%Y-%m-%d}"
+	},
+	"cpu": {
+		"format": "{usage}% ",
+		"tooltip": true,
+		"on-click": "foot htop"
+	},
+	"memory": {
+		"format": "{percentage}% ",
+		"tooltip": true,
+		"tooltip-format": "{used:0.1f}GiB used out of {total:0.1f}GiB",
+		"on-click": "foot free -h"
+	},
+	"temperature": {
+		 "thermal-zone": 6,
+		// "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+		"critical-threshold": 80,
+		// "format-critical": "{temperatureC}°C {icon}",
+		"format": "{temperatureC}°C {icon}",
+		"format-icons": [
+			" ",
+			"",
+			""
+		]
+	},
+	"disk": {
+		"format": "{percentage_used}% ",
+		"on-click": "foot df -h"
+	},
+	"backlight": {
+		// "device": "acpi_video1",
+		"format": "{percent}% {icon}",
+		"format-icons": [
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			""
+		]
+	},
+	"battery": {
+		"states": {
+			//"good": 95,
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "{capacity}% {icon}",
+		"format-full": "{capacity}% {icon}",
+		"format-charging": "{capacity}% ",
+		"format-plugged": "{capacity}% ",
+		"format-alt": "{time} {icon}",
+		"tooltip-format": "Power - {power}W\n{timeTo}\nCycles - {cycles}\nHealth - {health}",
+		// "format-good": "", // An empty format will hide the module
+		// "format-full": "",
+		/*"format-icons": [
+			"",
+			"",
+			"",
+			"",
+			""
+		],*/
+		"format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+	},
+	"battery#bat2": {
+		"bat": "BAT2"
+	},
+	"power-profiles-daemon": {
+		"format": "{icon}",
+		"tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+		"tooltip": true,
+		"format-icons": {
+			"default": "",
+			"performance": "",
+			"balanced": "",
+			"power-saver": ""
+		}
+	},
+	"network": {
+		// "interface": "wlp2*", // (Optional) To force the use of this interface
+		"tooltip-format": "{ifname} via {gwaddr} ",
+		"format-linked": "{ifname} (No IP) ",
+		"format-disconnected": "Disconnected ⚠",
+		/*"format-alt": "{ifname}: {ipaddr}/{cidr}",*/
+
+		"format-wifi": "{icon} {signalStrength}%",
+		"format-ethernet": "",
+		"tooltip-format": "SSID - {essid} ({frequency}GHz)\nIP - {ipaddr}\nInterface - {ifname}\nGateway - {gwaddr}\nBandwidth - 󰕒{bandwidthUpBytes} 󰇚{bandwidthDownBytes}",
+		"on-click": "kitty -e nmtui",
+
+		"format-icons": ["󰤟", "󰤢", "󰤥", "󰤨"],
+		"format-disconnected": "󰖪"
+	},
+	"pulseaudio": {
+		// "scroll-step": 1, // %, can be a float
+		"format": "{volume}% {icon} {format_source}",
+		"format-bluetooth": "{volume}% {icon} {format_source}",
+		"format-bluetooth-muted": " {icon} {format_source}",
+		"format-muted": " {format_source}",
+		"format-source": "{volume}% ",
+		"format-source-muted": "",
+		"format-icons": {
+			"headphone": "",
+			"hands-free": "",
+			"headset": "",
+			"phone": "",
+			"portable": "",
+			"car": "",
+			"default": [
+				"",
+				"",
+				""
+			]
+		},
+		"on-click": "pavucontrol"
+	},
+	"custom/media": {
+		"format": "{icon} {}",
+		"return-type": "json",
+		"max-length": 40,
+		"format-icons": {
+			"spotify": "",
+			"default": "🎜"
+		},
+		"escape": true,
+		"exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+		// "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+	},
+
+	"bluetooth": {
+	"format": " {status}",
+	"format-connected": " {device_alias}",
+	"format-connected-battery": " {device_battery_percentage}%",
+	// "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
+	"tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+	"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+	"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+	"tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
+}
+}

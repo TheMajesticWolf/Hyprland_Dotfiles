@@ -1,0 +1,14 @@
+set recolor "true"
+set default-bg "rgba(1,1,1,0.1)"
+# set recolor-darkcolor "rgba(1, 1, 1, 0.1)"
+
+set recolor-darkcolor "rgba({color7.rgb},1)"
+set recolor-lightcolor "rgba(0,0,0,0.4)"
+
+set recolor-keephue "true"
+set guioptions "cshv"
+set font "consolas bold 9"
+set page-padding 5
+
+set recolor-reverse-video "true"
+

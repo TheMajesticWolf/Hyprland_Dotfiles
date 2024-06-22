@@ -1,0 +1,156 @@
+* {
+    font-family: sans-serif;
+    /*font-size: 8px;*/
+    /*color: whitesmoke;*/
+
+}
+
+box#window {
+    /*border: 2px solid red;*/
+    padding: 10px;
+    margin: 2px;
+    font-size: 19px; 
+    font-weight: bolder;
+    color: white;
+    border: 1px solid white;
+    border-radius: 20px;
+    background-color: rgba(128, 128, 128, 0.2)
+
+}
+
+box#window:hover {
+    border-color: grey;
+
+}
+
+
+window#waybar {
+   /* background-color: #e3f2db;*/
+    background-color: rgba(10, 10, 10, 0.4);
+    /*background: transparent;*/
+    outline: none;
+    border: none;
+    /*border-bottom: 1px solid purple;*/
+}
+
+
+
+window#waybar.empty #window {
+    background-color: transparent;
+    border: none;
+}
+
+tooltip {
+    background-color:  rgba(0, 0, 0, 0.7);
+    outline: none;
+    border: none;
+    font-size: 18px;
+}
+
+tooltip label {
+    color: whitesmoke;
+}
+
+
+button:hover {
+    box-shadow: none;
+    text-shadow: none;
+    background: none;
+    transition: none;
+}
+
+
+.modules-left {
+    padding-left: 5px;
+    font-size: 18px;
+    color: whitesmoke;
+    /*border: 1px solid red;*/
+}
+
+.modules-center {
+    padding: 0px 5px 0px 5px;
+    /*border: 1px solid cyan;*/
+}
+
+.modules-right {
+    padding-right: 5px;
+    font-size: 18px;
+    color: whitesmoke;
+    /*border: 1px solid grey;*/
+}
+
+
+#workspaces button {
+    background: transparent;
+    outline: none;
+    box-shadow: 0 0 0 1px orange;
+    margin: 5px;
+    border: none;
+    color: whitesmoke;
+}
+
+#workspaces button.active {
+    box-shadow: 0 0 0 1px lime;
+}
+
+#workspaces button.urgent {
+    box-shadow: 0 0 0 1px red;
+}
+
+#workspaces button:hover{
+  /*background-color: red;*/
+  border-color: transparent;
+  box-shadow: 0 0 0 1px darkgreen;
+
+}
+
+/*
+#workspaces button:focused {
+    color: red;
+}
+*/
+
+#clock.clk1,
+#clock.clk2,
+#custom-poweroff {
+    font-family: monospace;
+    font-weight: bolder;
+    font-size: 20px;
+    color: antiquewhite;
+}
+
+
+
+#network,
+#cpu,
+#memory,
+#disk,
+#battery,
+#clock.clk1 {
+
+
+    /*background-color: rgba(10, 0, 0, 0.3);*/
+    border-radius: 4px;
+    outline: none;
+   /* background: transparent;*/
+   /*border: 1px solid cyan;*/
+   padding: 10px;
+   color: rgba(204, 207, 200, 1);
+   margin: 1px 1px 1px 1px;
+}
+
+#custom-poweroff:hover {
+    color: red;
+}
+
+
+#network:hover,
+#cpu:hover,
+#memory:hover,
+#disk:hover,
+#battery:hover {
+    color: white;
+    font-weight: bolder;
+    /*border: 1px  solid limegreen;*/    
+    /*box-shadow: 0 0 0 1px limegreen; */
+}
