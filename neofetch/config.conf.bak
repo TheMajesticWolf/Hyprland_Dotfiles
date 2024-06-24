@@ -1,66 +1,41 @@
 # See this wiki page for more info:
 # https://github.com/dylanaraps/neofetch/wiki/Customizing-Info
 print_info() {
+    info title
+    info underline
 
-	# info title
-	# info underline
+    info "OS" distro
+    info "Host" model
+    info "Kernel" kernel
+    info "Uptime" uptime
+    info "Packages" packages
+    info "Shell" shell
+    info "Resolution" resolution
+    info "DE" de
+    info "WM" wm
+    info "WM Theme" wm_theme
+    # info "Theme" theme
+    # info "Icons" icons
+    info "Terminal" term
+    info "Terminal Font" term_font
+    info "CPU" cpu
+    info "GPU" gpu
+    info "Memory" memory
 
-	
+    info "GPU Driver" gpu_driver  # Linux/macOS only
+    # info "CPU Usage" cpu_usage
+    # info "Disk" disk
+    # info "Battery" battery
+    # info "Font" font
+    # info "Song" song
+    # [[ "$player" ]] && prin "Music Player" "$player"
+    # info "Local IP" local_ip
+    # info "Public IP" public_ip
+    # info "Users" users
+    # info "Locale" locale  # This only works on glibc systems.
 
-	prin "❰ System ❱"
-	info "╔═  " distro
-	info "╠═  " kernel
-	info "╠═  " model
-	info "╠═ 󱑆 " uptime
-	info "╚═  " packages
-
-	prin
-
-	# info "WM" wm
-	# info "WM Theme" wm_theme
-	# info "Theme" theme
-	# info "Icons" icons
-
-	prin "❰ Desktop ❱"
-	info "╔═  " de
-	info "╚═ 󰍹 " resolution
-
-	prin
-
-	prin "❰ Terminal ❱"
-	info "╔═  " shell
-	info "╠═  " term_font
-	info "╚═  " term
-
-	prin
-
-	prin "❰ Hardware ❱"
-	info "╔═  " cpu
-	info "╠═  " gpu
-	info "╠═  " memory
-	info "╚═  " gpu_driver
-
-	# info "CPU Usage" cpu_usage
-	# info "Disk" disk
-	# info "Battery" battery
-	# info "Font" font
-	# info "Song" song
-	# [[ "$player" ]] && prin "Music Player" "$player"
-	# info "Local IP" local_ip
-	# info "Public IP" public_ip
-	# info "Users" users
-	# info "Locale" locale  # This only works on glibc systems.
-
-	# info cols
-	prin
-	# prin "$(color 16)   $(color 9)    $(color 10)    $(color 11)    $(color 12)    $(color 13)    $(color 14)    $(color 15)    "
-	# prin "$(color 8)   $(color 1)    $(color 2)    $(color 3)    $(color 4)    $(color 5)    $(color 6)    $(color 7)  " 
-	
-	# prin "$(color 16)   $(color 9)    $(color 10)    $(color 11)    $(color 12)    $(color 13)    $(color 14)    $(color 15)    "
-	# prin "$(color 8)   $(color 1)    $(color 2)    $(color 3)    $(color 4)    $(color 5)    $(color 6)    $(color 7)  " 
-
-	prin "$(color 16)   $(color 9)    $(color 10)    $(color 11)    $(color 12)    $(color 13)    $(color 14)    $(color 15)    "
-	prin "$(color 8)   $(color 1)    $(color 2)    $(color 3)    $(color 4)  󰣠  $(color 5)    $(color 6)    $(color 7)  " 
+    info cols
+        prin "$(color 1)   $(color 2)    $(color 3)    $(color 4)    $(color 5)    $(color 6)    $(color 7)    $(color 8)    \n \n $(color 9) \n   $(color 10)    $(color 11)    $(color 12)    $(color 13)    $(color 14)    $(color 15)    $(color 16)    "
 }
 
 # Title
@@ -87,7 +62,7 @@ title_fqdn="off"
 # Example:
 # on:  '4.8.9-1-ARCH'
 # off: 'Linux 4.8.9-1-ARCH'
-kernel_shorthand="off"
+kernel_shorthand="on"
 
 
 # Distro
@@ -573,7 +548,6 @@ bold="on"
 underline_enabled="on"
 
 # Underline character
-	# info underline
 #
 # Default:  '-'
 # Values:   'string'
@@ -590,7 +564,7 @@ underline_char="-"
 # Example:
 # separator="->":   'Shell-> bash'
 # separator=" =":   'WM = dwm'
-separator=" "
+separator=":"
 
 
 # Color Blocks
