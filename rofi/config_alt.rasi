@@ -24,6 +24,7 @@ configuration {
 
 @theme "/dev/null"
 @import "~/.cache/wal/rofi_template.rasi"
+@import "~/.cache/wal/rofi_alt_template.rasi"
 /*@import "~/.cache/wal/colors-rofi-dark.rasi"*/
 
 * {
@@ -153,6 +154,8 @@ element selected {
     border: 2px;
     border-color: @color5;
     border-radius: 20px;
+    //background-image:  linear-gradient(to right,  #fcff45,  #a8a883);
+    //background-image:  linear-gradient(to right, @color12, @color7);
 }
 
 
@@ -167,7 +170,7 @@ element-text {
 element-icon {
     margin: 0px 0px 0px 10px;
     size: 40px;
-    border: 1px;
+    padding: 1px;
     /*padding: 3px;
     border-color: white;
     border-radius: 1000px;*/
